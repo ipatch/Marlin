@@ -9,9 +9,11 @@ Please test this firmware and let us know if it misbehaves in any way. Volunteer
 
 - upgraded from stock touch screen to **12864 full graphics display**
 - upgraded from stock logic board to **SKR v1.3** with TMC 2208 v3 stepper drivers in UART mode
-- upgraded stock hot end to an **all metal** hot end.
-- upgraded stock build plate to a Wham Bam build plate with a PEX top layer / coating.
+- upgraded stock hot end to Mosquito hotend.
+- upgraded stock build plate to a ~~Wham Bam~~ with a PEX top layer / coating, and spent several hours scraping existing Al build surfaces.
 - upgraded extruder to **zesty nimble v1**
+- installed a zsync mount for top of z axis rods using a GT2 belt along with two GT2 20 tooth pulleys.
+- replaced stock build plate adjustment springs with nylon spacers
 
 > this fork of marlin has been tweaked to accommodate the above listed upgrades
 
@@ -49,7 +51,7 @@ git checkout --patch previous-custom-marlin-branch Marlin/Configuration.h
 
 ## Future Upgrades
 
-- install Zesty Nimble
+- ~~install Zesty Nimble~~
 - ~~install wambam build plate~~
 
 ## Inspiration
@@ -59,3 +61,4 @@ This fork has added settings from watching various YouTube videos _too many to l
 ## TODOs
 
 - [ ] setup a pin in the skr boards configuration pins file to map a pin for the filament run out sensor.
+- [ ] conver printer to a smooth rail setup a la prusa style printer.
