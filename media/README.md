@@ -1,3 +1,15 @@
+## Working with prusa slicer
+
+To calculate the extrusion multiplyer for a particular filament
+
+**EM** _Extrusion Multiplyer_ = 0.45 _expected layer width_ / actual layer width
+
+---
+
+_Example_
+
+EM 0.8823 = 0.45 / 0.51
+
 ## Connecting to a BigTreeTech SKR v1.3
 
 On macOS the physical USB port on the SKR v1.3 shows up as `/dev/tty.usbmodem14111` which can be used to interface with the device using _Pronterface_ / _PrintRun_.
@@ -14,9 +26,9 @@ The settings provided in the below image solved my [reconnection](https://youtu.
 
 <div align="center">
 
-<img src="https://github.com/ipatch/Marlin/blob/0c7ffadac2133803d6d26a851596f8235fd40e77/media/octoprint-recolla.png" alt="octoprint-reconnection-settings">
+<img src="https://raw.githubusercontent.com/ipatch/Marlin/ibuild-marlin2-bugfix/media/octoprint-recolla.png" alt="octoprint-reconnection-settings">
 
-<img src="https://github.com/ipatch/Marlin/blob/0c7ffadac2133803d6d26a851596f8235fd40e77/media/btt-tft35v3.png" alt="octoprint-connection-issues">
+<img src="https://raw.githubusercontent.com/ipatch/Marlin/ibuild-marlin2-bugfix/media/btt-tft35v3.png" alt="octoprint-connection-issues">
 
 </div>
 
@@ -32,6 +44,6 @@ However, when i connect the _GND_ and _pin 1.29_ of the _x min_ to my multimeter
 
 <div align="center">
 
-<img src="https://github.com/ipatch/Marlin/blob/e5f9a85a9c8b5ce65aac79301c97dbeb23aa5428/media/skr-v13-endstop-voltages.png" alt="skr13-pin-diagram" />
+<img src="https://raw.githubusercontent.com/ipatch/Marlin/ibuild-marlin2-bugfix/media/skr-v13-endstop-voltages.png" />
 
 </div>

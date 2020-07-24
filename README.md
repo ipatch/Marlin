@@ -56,9 +56,9 @@ git checkout --patch previous-custom-marlin-branch Marlin/Configuration.h
 
 ## Inspiration
 
-This fork has added settings from watching various YouTube videos _too many to link to every single video_.  And has also been heavily inspired by the [InsanityAutomation fork](https://github.com/InsanityAutomation/Marlin) of Marlin, and more specifically the [CrealityDwin_2.0](https://github.com/InsanityAutomation/Marlin/tree/CrealityDwin_2.0) branch from the InsanityAutomation fork of Marlin.
+This fork has added settings from watching various YouTube videos _too many to link to every single video_.  And has also been heavily inspired by the [InsanityAutomation fork](https://github.com/InsanityAutomation/Marlin) of Marlin, and more specifically ~~the [CrealityDwin_2.0](https://github.com/InsanityAutomation/Marlin/tree/CrealityDwin_2.0) branch from the InsanityAutomation fork of Marlin~~.
 
 ## TODOs
 
 - [ ] setup a pin in the skr boards configuration pins file to map a pin for the filament run out sensor.
-- [ ] conver printer to a smooth rail setup a la prusa style printer.
+- [ ] convert printer to a smooth rail setup a la prusa style printer.
