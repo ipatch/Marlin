@@ -10,6 +10,10 @@ _Example_
 
 EM 0.8823 = 0.45 / 0.51
 
+## Working with filament
+
+PETG can be dried using a standard kitchen oven by setting the temp to 120ºF and placing it on a standard baking sheet, then leaving the filament in the oven for ~ 30 minutes and checking up on it in 30 minute increments.
+
 ## Connecting to a BigTreeTech SKR v1.3
 
 On macOS the physical USB port on the SKR v1.3 shows up as `/dev/tty.usbmodem14111` which can be used to interface with the device using _Pronterface_ / _PrintRun_.
