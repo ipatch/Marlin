@@ -1,6 +1,16 @@
+<a id="warning"></a>
+
 ## ❗️ Warning
 
-This is an incomplete fork of Marlin 2.0.x to work with a _Creality_ **CR-10S Pro** 3d printer.  Some componentes of the printer remain stock, while other have been upgraded or removed entirely.
+This is an incomplete fork of Marlin 2.0.x to work with a _Creality_ **CR-10S Pro** 3d printer where some components remain stock, and others have been upgraded or removed entirely.
+
+<a id="contents"></a>
+
+## Contents
+
+- [Warning](#waring)
+- [Preamble](#preamble)
+  - [alt git workflow](#alt-git-workflow)
 
 ## Preamble
 
@@ -10,29 +20,30 @@ Please test this firmware and let us know if it misbehaves in any way. Volunteer
 - upgraded from stock touch screen to **12864 full graphics display**
 - upgraded from stock logic board to **SKR v1.3** with TMC 2208 v3 stepper drivers in UART mode
 - upgraded stock hot end to Mosquito hotend.
-- upgraded stock build plate to a ~~Wham Bam~~ with a PEX top layer / coating, and spent several hours scraping existing Al build surfaces.
-- upgraded extruder to **zesty nimble v1**
+- ~~upgraded~~ scraped stock build plate, and added a PEX sheet for top layer / coating. upgraded extruder to **zesty nimble v1**
 - installed a zsync mount for top of z axis rods using a GT2 belt along with two GT2 20 tooth pulleys.
 - replaced stock build plate adjustment springs with nylon spacers
 
-> this fork of marlin has been tweaked to accommodate the above listed upgrades
+> _this fork of marlin has been tweaked to accommodate the above listed upgrades_
 
 ## Understanding Changes
 
-I've tried my best to list the changes I've made to the **Configuration.h** and **Configuration_Adv.h** files with `todo ipatch,` or `todo ipatch, ia github src` single line C style comments ie. `//`
+I've tried my best to list the changes I've made to the **Configuration.h** and **Configuration_Adv.h** files with `todo ipatch,` or `todo ipatch, ia github src` using single line C style comments ie. `//`
 
 - **todo ipatch, ia github src** I'm using the `#define` statement described from the IA github Marlin fork linked below.
 - **todo ipatch** is a setting I tweaked, more than likely from watching a YouTube video.
 
-I've been modifying the source using VS Code on macOS, and have been building Marlin 2.0.x using the integrated Platform IO VS Code extension.
+I've been modifying the marlin source using VS Code with the integrated Platform IO on macOS to build the 2.0.x bugfix branch of Marlin.
 
 To build Marlin 2.0 you'll need [Arduino IDE 1.8.8 or newer](https://www.arduino.cc/en/main/software) or [PlatformIO](http://docs.platformio.org/en/latest/ide.html#platformio-ide). We've posted detailed instructions on [Building Marlin with Arduino](https://marlinfw.org/docs/basics/install_arduino.html) and [Building Marlin with PlatformIO for ReArm](https://marlinfw.org/docs/basics/install_rearm.html) (which applies well to other 32-bit boards).
 
 This git repo tracks the upstream bugfix-branch of marlin 2.0 and I pull those changes into the same branch locally within this repo, then create a new branch from pulled in changes on my local fork of marlin then merge in my changes that I've applied to _configuration.h_ and _configuration_adv.h_ files, and try to squash all merge conflicts in the process.
 
+<a id="alt-git-workflow"></a>
+
 ### alt git workflow
 
-If shit hits the fan, (and it will) checkout upstream changes into local bugfix branch, then create a new branch from upstream bugfix branch and merge each file independently until the build succeeds.
+If shit hits the fan, (and it will) checkout upstream changes into local bugfix branch, then create a new branch from upstream bugfix branch and merge each file listed below independently until the build succeeds.
 
 - Marlin/Configuration.h
 - Marlin/Configuration_adv.h
