@@ -593,6 +593,14 @@
 #define DEFAULT_bedKi 15.22
 #define DEFAULT_bedKd 254.12
 
+
+// todo ipatch PID atuotune bed oct 14 2020
+//Recv: PID Autotune finished! Put the last Kp, Ki and Kd constants from below into Configuration.h
+// Recv: #define DEFAULT_bedKp 48.63
+// Recv: #define DEFAULT_bedKi 7.09
+// Recv: #define DEFAULT_bedKd 222.35
+// Recv: ok P15 B3
+
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
 
