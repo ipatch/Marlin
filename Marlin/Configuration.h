@@ -525,9 +525,15 @@
   // #define DEFAULT_Kd 114
 
   // TODO ipatch, cr10s pro results, `m303 s205`
-  #define DEFAULT_Kp 21.46
-  #define DEFAULT_Ki 1.77
-  #define DEFAULT_Kd 64.98
+  // #define DEFAULT_Kp 21.46
+  // #define DEFAULT_Ki 1.77
+  // #define DEFAULT_Kd 64.98
+
+// todo ipatch PID autotune, `M303 E0 S200 C8`
+// results from PID autotune mosquito HE
+#define DEFAULT_Kp 24.90
+#define DEFAULT_Ki 2.07
+#define DEFAULT_Kd 74.71
 
 #endif // PIDTEMP
 
