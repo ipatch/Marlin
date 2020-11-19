@@ -16,7 +16,7 @@ PETG can be dried using a standard kitchen oven by setting the temp to 120ºF an
 
 ## Working with temperatures
 
-- converting **Celsius** to **Fahrenheit**
+- converting **Celsius** to **Fahrenheit** formulas, and versa
   - Fº = Cº * 1.8 + 32
   - Cº = (Fº - 32) * 5/9
 
