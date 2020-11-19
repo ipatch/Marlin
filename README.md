@@ -64,6 +64,7 @@ git checkout --patch previous-custom-marlin-branch Marlin/Configuration.h
 
 - ~~install Zesty Nimble~~
 - ~~install wambam build plate~~
+  > was underwhelmed with the wamba, ended up purchasing ~ 10 dollar PEI sheet from amz
 
 ## Inspiration
 
@@ -74,7 +75,6 @@ This fork has added settings from watching various YouTube videos _too many to l
 - [ ] setup a pin in the skr boards configuration pins file to map a pin for the filament run out sensor.
 - [ ] convert printer to a smooth rail setup a la prusa style printer.
 - [ ] display **layer #** of **tot num of layers** on 12864 display
-- [ ] display **total time printing** and toggle between, **total time** & **remaining time**
+- [x] ~~display **total time printing** and toggle between, **total time** & **remaining time**~~
 - [ ] setup custom boot logo _personal logo_ for marlin boot process on 12864 display.
 - [ ] see if it's possible to display the current speed of the current operation being performed.
-- [ ] make _heater gun_ detachable from 858D unit using 7 or 8 pin GX aviation style connector(s)
