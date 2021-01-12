@@ -1,136 +1,69 @@
-# Marlin 3D Printer Firmware
+## ❗️ Warning
 
-![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
-![GitHub contributors](https://img.shields.io/github/contributors/marlinfirmware/marlin.svg)
-![GitHub Release Date](https://img.shields.io/github/release-date/marlinfirmware/marlin.svg)
-[![Build Status](https://github.com/MarlinFirmware/Marlin/workflows/CI/badge.svg?branch=bugfix-2.0.x)](https://github.com/MarlinFirmware/Marlin/actions)
+This is an incomplete fork of Marlin 2.0.x to work with a _Creality_ **CR-10S Pro** 3d printer.  Some componentes of the printer remain stock, while other have been upgraded or removed entirely.
 
-<img align="right" width=175 src="buildroot/share/pixmaps/logo/marlin-250.png" />
+## Preamble
 
 Additional documentation can be found at the [Marlin Home Page](https://marlinfw.org/).
 Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
 
-## Marlin 2.0 Bugfix Branch
+- upgraded from stock touch screen to **12864 full graphics display**
+- upgraded from stock logic board to **SKR v1.3** with TMC 2208 v3 stepper drivers in UART mode
+- upgraded stock hot end to Mosquito hotend.
+- upgraded stock build plate to a ~~Wham Bam~~ with a PEX top layer / coating, and spent several hours scraping existing Al build surfaces.
+- upgraded extruder to **zesty nimble v1**
+- installed a zsync mount for top of z axis rods using a GT2 belt along with two GT2 20 tooth pulleys.
+- replaced stock build plate adjustment springs with nylon spacers
 
-__Not for production use. Use with caution!__
+> this fork of marlin has been tweaked to accommodate the above listed upgrades
 
-Marlin 2.0 takes this popular RepRap firmware to the next level by adding support for much faster 32-bit and ARM-based boards while improving support for 8-bit AVR boards. Read about Marlin's decision to use a "Hardware Abstraction Layer" below.
+## Understanding Changes
 
-This branch is for patches to the latest 2.0.x release version. Periodically this branch will form the basis for the next minor 2.0.x release.
+I've tried my best to list the changes I've made to the **Configuration.h** and **Configuration_Adv.h** files with `todo ipatch,` or `todo ipatch, ia github src` single line C style comments ie. `//`
 
-Download earlier versions of Marlin on the [Releases page](https://github.com/MarlinFirmware/Marlin/releases).
+- **todo ipatch, ia github src** I'm using the `#define` statement described from the IA github Marlin fork linked below.
+- **todo ipatch** is a setting I tweaked, more than likely from watching a YouTube video.
 
-## Building Marlin 2.0
+I've been modifying the source using VS Code on macOS, and have been building Marlin 2.0.x using the integrated Platform IO VS Code extension.
 
-To build Marlin 2.0 you'll need [Arduino IDE 1.8.8 or newer](https://www.arduino.cc/en/main/software) or [PlatformIO](https://docs.platformio.org/en/latest/ide.html#platformio-ide). We've posted detailed instructions on [Building Marlin with Arduino](https://marlinfw.org/docs/basics/install_arduino.html) and [Building Marlin with PlatformIO for ReArm](https://marlinfw.org/docs/basics/install_rearm.html) (which applies well to other 32-bit boards).
+To build Marlin 2.0 you'll need [Arduino IDE 1.8.8 or newer](https://www.arduino.cc/en/main/software) or [PlatformIO](http://docs.platformio.org/en/latest/ide.html#platformio-ide). We've posted detailed instructions on [Building Marlin with Arduino](https://marlinfw.org/docs/basics/install_arduino.html) and [Building Marlin with PlatformIO for ReArm](https://marlinfw.org/docs/basics/install_rearm.html) (which applies well to other 32-bit boards).
 
-## Hardware Abstraction Layer (HAL)
+This git repo tracks the upstream bugfix-branch of marlin 2.0 and I pull those changes into the same branch locally within this repo, then create a new branch from pulled in changes on my local fork of marlin then merge in my changes that I've applied to _configuration.h_ and _configuration_adv.h_ files, and try to squash all merge conflicts in the process.
 
-Marlin 2.0 introduces a layer of abstraction so that all the existing high-level code can be built for 32-bit platforms while still retaining full 8-bit AVR compatibility. Retaining AVR compatibility and a single code-base is important to us, because we want to make sure that features and patches get as much testing and attention as possible, and that all platforms always benefit from the latest improvements.
+### alt git workflow
 
-### Current HALs
+If shit hits the fan, (and it will) checkout upstream changes into local bugfix branch, then create a new branch from upstream bugfix branch and merge each file independently until the build succeeds.
 
-  #### AVR (8-bit)
+- Marlin/Configuration.h
+- Marlin/Configuration_adv.h
+- Marlin/_Bootscreen.h
+- Marlin/_Statusscreen.h
+- README.md _this file, **not** its upstream counterpart_
+- platofrmio.ini
 
-  board|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Arduino AVR](https://www.arduino.cc/)|ATmega, ATTiny, etc.|16-20MHz|64-256k|2-16k|5V|no
+To merge in each of the modified files one by one using git from a CLI.
 
-  #### DUE
+```shell
+cd "project root"
+git checkout -b fresh-new-bugfix-2.0-branch-from-upstream
+git checkout --patch previous-custom-marlin-branch Marlin/Configuration.h
+```
 
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Arduino Due](https://www.arduino.cc/en/Guide/ArduinoDue), [RAMPS-FD](https://www.reprap.org/wiki/RAMPS-FD), etc.|[SAM3X8E ARM-Cortex M3](https://www.microchip.com/wwwproducts/en/ATsam3x8e)|84MHz|512k|64+32k|3.3V|no
+## Future Upgrades
 
-  #### ESP32
+- ~~install Zesty Nimble~~
+- ~~install wambam build plate~~
 
-  board|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [ESP32](https://www.espressif.com/en/products/hardware/esp32/overview)|Tensilica Xtensa LX6|160-240MHz variants|---|---|3.3V|---
+## Inspiration
 
-  #### LPC1768 / LPC1769
+This fork has added settings from watching various YouTube videos _too many to link to every single video_.  And has also been heavily inspired by the [InsanityAutomation fork](https://github.com/InsanityAutomation/Marlin) of Marlin, and more specifically ~~the [CrealityDwin_2.0](https://github.com/InsanityAutomation/Marlin/tree/CrealityDwin_2.0) branch from the InsanityAutomation fork of Marlin~~.
 
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Re-ARM](https://www.kickstarter.com/projects/1245051645/re-arm-for-ramps-simple-32-bit-upgrade)|[LPC1768 ARM-Cortex M3](https://www.nxp.com/products/microcontrollers-and-processors/arm-based-processors-and-mcus/lpc-cortex-m-mcus/lpc1700-cortex-m3/512kb-flash-64kb-sram-ethernet-usb-lqfp100-package:LPC1768FBD100)|100MHz|512k|32+16+16k|3.3-5V|no
-  [MKS SBASE](https://reprap.org/forum/read.php?13,499322)|LPC1768 ARM-Cortex M3|100MHz|512k|32+16+16k|3.3-5V|no
-  [Selena Compact](https://github.com/Ales2-k/Selena)|LPC1768 ARM-Cortex M3|100MHz|512k|32+16+16k|3.3-5V|no
-  [Azteeg X5 GT](https://www.panucatt.com/azteeg_X5_GT_reprap_3d_printer_controller_p/ax5gt.htm)|LPC1769 ARM-Cortex M3|120MHz|512k|32+16+16k|3.3-5V|no
-  [Smoothieboard](https://reprap.org/wiki/Smoothieboard)|LPC1769 ARM-Cortex M3|120MHz|512k|64k|3.3-5V|no
+## TODOs
 
-  #### SAMD51
-
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Adafruit Grand Central M4](https://www.adafruit.com/product/4064)|[SAMD51P20A ARM-Cortex M4](https://www.microchip.com/wwwproducts/en/ATSAMD51P20A)|120MHz|1M|256k|3.3V|yes
-
-  #### STM32F1
-
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Arduino STM32](https://github.com/rogerclarkmelbourne/Arduino_STM32)|[STM32F1](https://www.st.com/en/microcontrollers-microprocessors/stm32f103.html) ARM-Cortex M3|72MHz|256-512k|48-64k|3.3V|no
-  [Geeetech3D GTM32](https://github.com/Geeetech3D/Diagram/blob/master/Rostock301/Hardware_GTM32_PRO_VB.pdf)|[STM32F1](https://www.st.com/en/microcontrollers-microprocessors/stm32f103.html) ARM-Cortex M3|72MHz|256-512k|48-64k|3.3V|no
-
-  #### STM32F4
-
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [STEVAL-3DP001V1](https://www.st.com/en/evaluation-tools/steval-3dp001v1.html)|[STM32F401VE Arm-Cortex M4](https://www.st.com/en/microcontrollers-microprocessors/stm32f401ve.html)|84MHz|512k|64+32k|3.3-5V|yes
-
-  #### Teensy++ 2.0
-
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Teensy++ 2.0](https://www.microchip.com/wwwproducts/en/AT90USB1286)|[AT90USB1286](https://www.microchip.com/wwwproducts/en/AT90USB1286)|16MHz|128k|8k|5V|no
-
-  #### Teensy 3.1 / 3.2
-
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Teensy 3.2](https://www.pjrc.com/store/teensy32.html)|[MK20DX256VLH7](https://www.mouser.com/ProductDetail/NXP-Freescale/MK20DX256VLH7) ARM-Cortex M4|72MHz|256k|32k|3.3V-5V|yes
-
-  #### Teensy 3.5 / 3.6
-
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Teensy 3.5](https://www.pjrc.com/store/teensy35.html)|[MK64FX512VMD12](https://www.mouser.com/ProductDetail/NXP-Freescale/MK64FX512VMD12) ARM-Cortex M4|120MHz|512k|192k|3.3-5V|yes
-  [Teensy 3.6](https://www.pjrc.com/store/teensy36.html)|[MK66FX1M0VMD18](https://www.mouser.com/ProductDetail/NXP-Freescale/MK66FX1M0VMD18) ARM-Cortex M4|180MHz|1M|256k|3.3V|yes
-
-  #### Teensy 4.0 / 4.1
-
-  boards|processor|speed|flash|sram|logic|fpu
-  ----|---------|-----|-----|----|-----|---
-  [Teensy 4.0](https://www.pjrc.com/store/teensy40.html)|[IMXRT1062DVL6A](https://www.mouser.com/new/nxp-semiconductors/nxp-imx-rt1060-crossover-processor/) ARM-Cortex M7|600MHz|1M|2M|3.3V|yes
-  [Teensy 4.1](https://www.pjrc.com/store/teensy41.html)|[IMXRT1062DVJ6A](https://www.mouser.com/new/nxp-semiconductors/nxp-imx-rt1060-crossover-processor/) ARM-Cortex M7|600MHz|1M|2M|3.3V|yes
-
-## Submitting Patches
-
-Proposed patches should be submitted as a Pull Request against the ([bugfix-2.0.x](https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.0.x)) branch.
-
-- This branch is for fixing bugs and integrating any new features for the duration of the Marlin 2.0.x life-cycle.
-- Follow the [Coding Standards](https://marlinfw.org/docs/development/coding_standards.html) to gain points with the maintainers.
-- Please submit Feature Requests and Bug Reports to the [Issue Queue](https://github.com/MarlinFirmware/Marlin/issues/new/choose). Support resources are also listed there.
-- Whenever you add new features, be sure to add tests to `buildroot/tests` and then run your tests locally, if possible.
-  - It's optional: Running all the tests on Windows might take a long time, and they will run anyway on GitHub.
-  - If you're running the tests on Linux (or on WSL with the code on a Linux volume) the speed is much faster.
-  - You can use `make tests-all-local` or `make tests-single-local TEST_TARGET=...`.
-  - If you prefer Docker you can use `make tests-all-local-docker` or `make tests-all-local-docker TEST_TARGET=...`.
-
-### [RepRap.org Wiki Page](https://reprap.org/wiki/Marlin)
-
-## Credits
-
-The current Marlin dev team consists of:
-
- - Scott Lahteine [[@thinkyhead](https://github.com/thinkyhead)] - USA &nbsp; [Donate](https://www.thinkyhead.com/donate-to-marlin) / Flattr: [![Flattr Scott](https://api.flattr.com/button/flattr-badge-small.png)](https://flattr.com/submit/auto?user_id=thinkyhead&url=https://github.com/MarlinFirmware/Marlin&title=Marlin&language=&tags=github&category=software)
- - Roxanne Neufeld [[@Roxy-3D](https://github.com/Roxy-3D)] - USA
- - Chris Pepper [[@p3p](https://github.com/p3p)] - UK
- - Bob Kuhn [[@Bob-the-Kuhn](https://github.com/Bob-the-Kuhn)] - USA
- - João Brazio [[@jbrazio](https://github.com/jbrazio)] - Portugal
- - Erik van der Zalm [[@ErikZalm](https://github.com/ErikZalm)] - Netherlands &nbsp; [![Flattr Erik](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=ErikZalm&url=https://github.com/MarlinFirmware/Marlin&title=Marlin&language=&tags=github&category=software)
-
-## License
-
-Marlin is published under the [GPL license](/LICENSE) because we believe in open development. The GPL comes with both rights and obligations. Whether you use Marlin firmware as the driver for your open or closed-source product, you must keep Marlin open, and you must provide your compatible Marlin source code to end users upon request. The most straightforward way to comply with the Marlin license is to make a fork of Marlin on Github, perform your modifications, and direct users to your modified fork.
-
-While we can't prevent the use of this code in products (3D printers, CNC, etc.) that are closed source or crippled by a patent, we would prefer that you choose another firmware or, better yet, make your own.
+- [ ] setup a pin in the skr boards configuration pins file to map a pin for the filament run out sensor.
+- [ ] convert printer to a smooth rail setup a la prusa style printer.
+- [ ] display **layer #** of **tot num of layers** on 12864 display
+- [ ] display **total time printing** and toggle between, **total time** & **remaining time**
+- [ ] setup custom boot logo _personal logo_ for marlin boot process on 12864 display.
+- [ ] see if it's possible to display the current speed of the current operation being performed.
+- [ ] make _heater gun_ detachable from 858D unit using 7 or 8 pin GX aviation style connector(s)
