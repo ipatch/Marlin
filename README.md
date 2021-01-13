@@ -1,3 +1,9 @@
+This branch, `ipatch-configs` serves to be an isolated branch that houses the configuration files I have personally edited, and preserve my changes, and to _hopefully_ make managing the `Configuration.h` and `Configuration_Adv.h` files a tad bit easier when pulling upstream changes, and then rebasing my changes on top of the upstream changes. 🤞
+
+<details>
+
+<summary>Notes added from my personal README</summary>
+
 ## ❗️ Warning
 
 This is an incomplete fork of Marlin 2.0.x to work with a _Creality_ **CR-10S Pro** 3d printer.  Some componentes of the printer remain stock, while other have been upgraded or removed entirely.
@@ -67,3 +73,5 @@ This fork has added settings from watching various YouTube videos _too many to l
 - [ ] setup custom boot logo _personal logo_ for marlin boot process on 12864 display.
 - [ ] see if it's possible to display the current speed of the current operation being performed.
 - [ ] make _heater gun_ detachable from 858D unit using 7 or 8 pin GX aviation style connector(s)
+
+</details>
