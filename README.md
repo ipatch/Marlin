@@ -58,7 +58,17 @@ git checkout --patch previous-custom-marlin-branch Marlin/Configuration.h
 
 This fork has added settings from watching various YouTube videos _too many to link to every single video_.  And has also been heavily inspired by the [InsanityAutomation fork](https://github.com/InsanityAutomation/Marlin) of Marlin, and more specifically ~~the [CrealityDwin_2.0](https://github.com/InsanityAutomation/Marlin/tree/CrealityDwin_2.0) branch from the InsanityAutomation fork of Marlin~~.
 
+## useful links
+
+<a name="useful-links"></a>
+
+- [**3dbeginners.com**, recycling 3d printing filament][lnk1]
+
+[lnk1]: <https://www.3dbeginners.com/how-to-recycle-3d-printing-filament/>
+
 ## TODOs
+
+<a name="todos"></a>
 
 - [ ] setup a pin in the skr boards configuration pins file to map a pin for the filament run out sensor.
 - [ ] convert printer to a smooth rail setup a la prusa style printer.
