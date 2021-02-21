@@ -570,9 +570,14 @@
 // #define DEFAULT_bedKd 382.45
 
 // cr10s pro with wham bam build plate
-#define DEFAULT_bedKp 76.16
-#define DEFAULT_bedKi 15.22
-#define DEFAULT_bedKd 254.12
+// #define DEFAULT_bedKp 76.16
+// #define DEFAULT_bedKi 15.22
+// #define DEFAULT_bedKd 254.12
+
+// PID Autotune finished! Put the last Kp, Ki and Kd constants from below into Configuration.h
+#define DEFAULT_bedKp 106.53
+#define DEFAULT_bedKi 19.19
+#define DEFAULT_bedKd 394.21
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
