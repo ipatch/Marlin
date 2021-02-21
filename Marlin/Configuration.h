@@ -511,15 +511,10 @@
 
   // todo ipatch #define K1 0.95 // smoothing factor within the PID
 
-  // Ultimaker
-  // #define DEFAULT_Kp 22.2
-  // #define DEFAULT_Ki 1.08
-  // #define DEFAULT_Kd 114
-
-  // TODO ipatch, cr10s pro results, `m303 s205`
-  #define DEFAULT_Kp 21.46
-  #define DEFAULT_Ki 1.77
-  #define DEFAULT_Kd 64.98
+  // PID Autotune finished! Put the last Kp, Ki and Kd constants from below into Configuration.h
+#define DEFAULT_Kp 25.78
+#define DEFAULT_Ki 2.13
+#define DEFAULT_Kd 78.17
 
 #endif // PIDTEMP
 
